@@ -1,0 +1,14 @@
+﻿@model IEnumerable<TheWorld.Models.Trip>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Welcome to The World Trip Organizing tool</h1>
+        <p>Click below to see the available trips!!</p>
+        <div>
+            <a asp-controller="App" asp-Action="Trips" class="btn btn-success">Trips</a>
+        </div>
+    </div>
+</div>

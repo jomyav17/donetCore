@@ -1,0 +1,12 @@
+{
+  "MailSetting": {
+    "ToAddress": "admin@theWorld.org"
+  },
+  "ConnectionString": {
+    "TestDbConnection": "Data Source=(localdb)\\ProjectsV13;Initial Catalog=TestDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+    "AzureConnection": "Data Source=jomysdata.database.windows.net;Initial Catalog=TestDb;Integrated Security=False;User ID=maestro;Password=Password@1;Connect Timeout=15;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  },
+  "Keys": {
+    "BingKey": "DONOTPUTKEYINSOURCECONTROL"
+  }
+}
