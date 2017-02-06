@@ -15,13 +15,26 @@
 <body>
 
     <div id="sidebar">
-        <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
-        <span>Sam Hastings</span>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
+            <span>@User.Identity.Name</span>
+        }
         <ul class="menu nav">
             <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
             <li><a asp-controller="App" asp-action="About">About</a></li>
             <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li><a asp-controller="App" asp-action="Trips">Trips</a></li>
+                <li><a asp-controller="Auth" asp-action="Logout">Logout</a></li>
+            }
+            else
+            {
+                <li><a asp-controller="Auth" asp-action="Login">Login</a></li>
+            }
         </ul>
+
     </div>
 
     <div id="wrapper">
@@ -61,7 +74,12 @@
     </div>
     <script type="text/javascript" src="~/lib/jQuery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/js/Site.js"></script>
+    <environment names="Development">
+        <script type="text/javascript" src="~/js/Site.js"></script>
+    </environment>
+    <environment names="Production,Staging">
+        <script type="text/javascript" src="~/lib/_app/Site.js"></script>
+    </environment>
     @RenderSection("scripts", false)
 </body>
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
@@ -31,10 +32,12 @@ namespace TheWorld.Controllers.Web
             return View();
         }
 
+        [Authorize]
         public IActionResult Trips()
         {
-            var data = _repository.GetAllTrips();
-            return View(data);
+            //var data = _repository.GetAllTrips();
+            //return View(data);
+            return View();
         }
 
         public IActionResult Contact()

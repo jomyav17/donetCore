@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace TheWorld.Models
 {
-    public class WorldContext : DbContext
+    public class WorldContext : IdentityDbContext<WorldUser>
     {
         private readonly IConfigurationRoot _config;
 
@@ -23,9 +24,9 @@ namespace TheWorld.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-
-            //optionsBuilder.UseSqlServer(_config["ConnectionString:TestDbConnection"]);
-            optionsBuilder.UseSqlServer(_config["ConnectionString:AzureConnection"]);
+            optionsBuilder.UseSqlServer(_config["ConnectionString:LocalDbConnection"]);
+            //optionsBuilder.UseSqlServer(_config["ConnectionString:AzureConnection"]);
         }
+
     }
 }
